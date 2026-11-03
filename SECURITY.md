@@ -14,4 +14,4 @@ If any credential has been exposed elsewhere, revoke or rotate the mailbox app p
 
 No claim is made that static scans find every secret or vulnerability. Do not publish a vulnerability report containing real credentials or personal emails.
 
-The final official npm audit reported 4 high and 16 moderate dependency-tree entries after compatible updates. They remain unresolved; see VALIDATION.md. Do not interpret a successful build as evidence that these issues are fixed.
+The latest final-review official npm audit reported 8 high and 16 moderate dependency-tree entries (0 critical). Earlier publication checks reported 4 high and 16 moderate; the historical results are retained. They remain unresolved; see VALIDATION.md. Do not interpret a successful build as evidence that these issues are fixed.

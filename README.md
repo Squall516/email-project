@@ -97,7 +97,7 @@ npm start
 
 ## Current Status
 
-Final TypeScript, ESLint and production-build checks passed; four isolated startup/negative-path HTTP checks passed. There is no unit/E2E suite, and real mail/database operations were not tested. The final official dependency audit still reports 4 high and 16 moderate entries; this is not a security-clean release.
+Final TypeScript, ESLint and production-build checks passed; four isolated startup/negative-path HTTP checks passed. There is no unit/E2E suite, and real mail/database operations were not tested. The latest final-review official dependency audit reports 8 high and 16 moderate entries; this is not a security-clean release.
 
 The source has been inspected and small compilation/runtime fixes were made for publication: missing dependency declarations/types, an empty account route, optional IMAP results, connection cleanup, React initialization and a missing-password login edge case. No large redesign or complete security implementation was attempted.
 
@@ -128,3 +128,13 @@ These are plans, **not implemented features**:
 6. Review dependency advisories, accessibility, logging and deployment controls before any public service deployment.
 
 The author should personally confirm all descriptions and application claims. The project is suitable for review as a transparent learning prototype, not as evidence of an already secure or commercially mature system.
+
+## Final application review and safe demonstration
+
+The final review on 3 November 2026 reran TypeScript, ESLint and production build successfully, plus four isolated HTTP smoke checks (4 passed, 0 failed). No automated unit/E2E suite exists. A successful PostgreSQL-backed workflow or real mail delivery is **not** established by these checks. Updated dependency counts are **8 high, 16 moderate, 0 critical**; earlier audit results remain in the historical validation notes.
+
+![Actual login screen; no personal data or credentials](docs/login-review.png)
+
+This is the actual login page of a loopback production server with placeholder database/mail settings and an empty admin password. It demonstrates rendering only, not successful authentication, mailbox access or a populated dashboard. The browser title still uses the Create Next App template. No dashboard screenshot with real records is included.
+
+See [the demonstration guide](docs/DEMO.md) and [Chinese application review](APPLICATION_REVIEW_ZH.md). A safe full workflow demonstration still requires a separate disposable PostgreSQL database, synthetic accounts/contact fields and, for mail operations, a dedicated test mailbox containing only synthetic messages. Do not use the author's existing `.env` or real account credentials when recording a demo. These are preparation steps, not a claim that this end-to-end setup was tested.

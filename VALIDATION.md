@@ -58,3 +58,11 @@ A successful build is not a clean security audit. Dependency advisories may chan
 ## Remaining work
 
 Secure sessions and API authorization, safer secret storage, transactional rental changes, input validation, complete migrations, rendered mailbox results, meaningful automated tests and independent end-to-end validation remain unfinished. Read SECURITY.md and the README limitations before running anything beyond a disposable local demo.
+
+## Final application review rerun — 3 November 2026
+
+Typecheck, lint and production build passed again; isolated HTTP checks passed 4/4 using placeholder/empty environment settings. The login page was visually inspected and captured. No real PostgreSQL/IMAP/SMTP operations were performed. No existing data was changed.
+
+A fresh official npm registry audit now reports 24 dependency-tree entries: 8 high, 16 moderate, 0 critical. High entries include @prisma/client, @prisma/config, deepmerge-ts, eslint-config-next, eslint-plugin-react-hooks, prisma, zod and zod-validation-error. These updated counts supersede earlier counts as the current snapshot, without rewriting the historical results. No major dependency migration or forced audit fix was attempted.
+
+Configured local credential values and common key patterns were checked against all 41 existing Git history blobs before this documentation update; no matches were found. This targeted check is not a comprehensive security certification. The existing application security blockers remain.
