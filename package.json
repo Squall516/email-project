@@ -3,23 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "next start --hostname 127.0.0.1",
+    "lint": "eslint",
+    "postinstall": "prisma generate",
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "next": "16.4.0",
+    "@prisma/client": "6.19.3",
+    "imapflow": "^2.2.7",
+    "mailparser": "^3.9.36",
+    "next": "16.4.4",
+    "nodemailer": "10.3.1",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
+    "@types/mailparser": "^3.9.0",
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.4.0",
+    "eslint-config-next": "16.4.4",
+    "prisma": "^6.19.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Email {
+  id            String         @id @default(cuid())
+  address       String         @unique
+  status        String         @default("active")
+  createdAt     DateTime       @default(now())
+  steamAccounts SteamAccount[]
+}
+
+model SteamAccount {
+  id            String        @id @default(cuid())
+  emailId       String?
+  email         Email?        @relation(fields: [emailId], references: [id])
+  steamUsername String
+  steamPassword String
+  status        String        @default("idle")
+  deposit       Float         @default(0)
+  rentPrice     Float         @default(0)
+  createdAt     DateTime      @default(now())
+  rentals       RentalOrder[]
+}
+
+model RentalOrder {
+  id              String       @id @default(cuid())
+  steamAccountId  String
+  steamAccount    SteamAccount @relation(fields: [steamAccountId], references: [id])
+  customerName    String
+  customerContact String
+  totalPrice      Float        @default(0)
+  status          String       @default("active")
+  expiresAt       DateTime?
+  createdAt       DateTime     @default(now())
+}

@@ -39,3 +39,31 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Publish only secret-free configuration examples
+!.env.example
+# Personal agent configuration and local tools
+.agents/
+.claude/
+.cursor/
+.devin/
+# Private records, mailbox exports and database dumps
+*.db
+*.db-*
+*.sqlite*
+*.dump
+*.backup
+*.csv
+*.eml
+*.mbox
+*.pst
+*.log
+*.key
+*.p12
+*.pfx
+backups/
+private/
+exports/
+# Keep Prisma migration SQL, but exclude ad-hoc database dumps
+*.sql
+!prisma/migrations/**/migration.sql
